@@ -49,4 +49,33 @@ public class Employee {
     public void setManager(final String manager) {
         this.manager = manager;
     }
+    /**
+     * Returns the manager for the given employee.
+     * @param employee
+     */
+    public Employee findManager(final Employee employee) {
+        return ;
+    }
+    /**
+     * Returns the manager for the given employee.
+     * @param employee
+     */
+    public int countManagersAbove(final Employee employee){
+        Employee manager = findManager();
+        if (manager == null) {
+            return 0;
+        } else {
+            return 1 + countManagersAbove(manager);
+        }
+
+    }
+    CEU(employee){
+        int count = 0;
+        for (int i = 0; i < employees.size; i++){
+            if (findManager(employers.get(i)==employee)){
+                count += 1 + CEU(employers.get(i));
+            }
+        }
+        return count;
+    }
 }
